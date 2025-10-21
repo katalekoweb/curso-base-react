@@ -1,8 +1,13 @@
 import { useState } from "react";
 import InputAdd from "./Components/InputAdd";
 import TodoItem from "./Components/TodoItem";
+import List from "./Components/List";
+import { TodoAPI } from "./shared/services/api/TodoApi";
+
+TodoAPI.getAll().then(data => console.log('APP', data))
 
 export const App = () => {
+
   const [list, setList] = useState([
     { id: 1, label: "Fazer matabicho", complete: false },
     { id: 2, label: "Fazer almosso", complete: false },
@@ -31,7 +36,7 @@ export const App = () => {
     <div>
       <InputAdd onAdd={handleAdd} />
 
-      <ol>
+      <List>
         {list.map((listItem, index) => (
           <TodoItem
             key={index}
@@ -42,7 +47,7 @@ export const App = () => {
             onDelete={handleDelete}
           />
         ))}
-      </ol>
+      </List>
     </div>
   );
 };

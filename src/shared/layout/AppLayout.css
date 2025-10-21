@@ -1,0 +1,35 @@
+#root, html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Segoe UI", Arial;
+    background: #e6eeeeff;
+    color: #333;
+}
+
+.layout-base {
+    padding: 8px
+}
+
+.layout-header {
+    background: rgba(19, 206, 112, 1);
+}
+
+.layout-header-container {
+    padding: 8px;
+    display: flex;
+    padding: 18px;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.layout-header a {
+    margin-right: 12px;
+}
+
+
+.layout-divider {
+    border-color: black;
+}

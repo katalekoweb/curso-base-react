@@ -1,0 +1,19 @@
+.PageLayoutContainer {
+    font-family: arial;
+    display: flex;
+    margin-top: 16px;
+}
+
+.PageContent {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    background: #fff;
+    padding: 12px;
+    border-radius: 20px;
+    shadow: 0 1px 3px 1px #444;
+}
+
+.PageTitle {
+    margin-top: 0;
+}

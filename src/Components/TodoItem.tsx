@@ -15,13 +15,12 @@ const TodoItem = ({ id, label, complete, onMarkMade, onDelete }: ITodoItem) => {
       <div className="item">
         <div>
           <span>{label}</span>
-
-          {complete ? "Concluido" : ""}
+          {complete ? "✅" : ""}
         </div>
 
         <div className="actions">
-          <button onClick={() => onMarkMade(id)}>Concluir</button>
-          <button onClick={() => onDelete(id)}>Excluir</button>
+          <button className="btn"  onClick={() => onMarkMade(id)}>Concluir</button>
+          <button className="btnDanger" onClick={() => onDelete(id)}>Excluir</button>
         </div>
       </div>
     </li>

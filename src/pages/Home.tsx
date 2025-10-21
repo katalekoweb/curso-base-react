@@ -3,6 +3,7 @@ import { TodoAPI, type ITodo } from '../shared/services/api/TodoApi';
 import InputAdd from '../Components/InputAdd';
 import List from '../Components/List';
 import TodoItem from '../Components/TodoItem';
+import PageLayout from '../shared/page-layout/PageLayout';
 
 const Home = () => {
   const [list, setList] = useState<ITodo[]>([]); // desestruturar a tupla
@@ -38,12 +39,13 @@ const Home = () => {
   };
 
   const handleDelete = (id: number) => {
-    console.log(id);    
-    setList([...list.filter(item => id != item.id)])
+    TodoAPI.deleteteById(String(id)).then(() => {
+        setList([...list.filter(item => id != item.id)])
+    })    
   }
 
   return (
-    <div>
+    <PageLayout title='Pagina Inicial'>
       <InputAdd onAdd={handleAdd} />
 
       <List>
@@ -58,7 +60,7 @@ const Home = () => {
           />
         ))}
       </List>
-    </div>
+    </PageLayout>
   );
 }
 

@@ -4,7 +4,7 @@ import TodoItem from "./Components/TodoItem";
 import List from "./Components/List";
 import { TodoAPI, type ITodo } from "./shared/services/api/TodoApi";
 import Home from "./pages/Home";
-import AppLayout from "./layout/AppLayout";
+import AppLayout from "./shared/layout/AppLayout";
 
 // TodoAPI.getAll().then(data => console.log('1', data))
 // TodoAPI.create({label: "Fazer almoco", complete: false})

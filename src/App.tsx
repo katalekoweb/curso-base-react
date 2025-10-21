@@ -1,53 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputAdd from "./Components/InputAdd";
 import TodoItem from "./Components/TodoItem";
 import List from "./Components/List";
-import { TodoAPI } from "./shared/services/api/TodoApi";
+import { TodoAPI, type ITodo } from "./shared/services/api/TodoApi";
+import Home from "./pages/Home";
+import AppLayout from "./layout/AppLayout";
 
-TodoAPI.getAll().then(data => console.log('APP', data))
+// TodoAPI.getAll().then(data => console.log('1', data))
+// TodoAPI.create({label: "Fazer almoco", complete: false})
+// TodoAPI.create({label: "Fazer lanche", complete: false})
+// TodoAPI.getAll().then(data => console.log('2', data))
+// TodoAPI.updateById('1', {label: "Fazer janta", complete: false})
+// TodoAPI.getAll().then(data => console.log('3', data))
+// TodoAPI.deleteteById('1')
+// TodoAPI.getAll().then(data => console.log('4', data))
 
 export const App = () => {
 
-  const [list, setList] = useState([
-    { id: 1, label: "Fazer matabicho", complete: false },
-    { id: 2, label: "Fazer almosso", complete: false },
-    { id: 3, label: "Fazer a janta", complete: false },
-  ]); // desestruturar a tupla
-
-  const handleAdd = (value: string) => {
-    setList([...list, { id: list.length + 1, complete: false, label: value }]);
-  };
-
-  const handleMarkAsMade = (id: number) => {
-    setList([
-      ...list.map((item) => ({
-        ...item,
-        complete: item.id === id ? !item.complete : item.complete,
-      })),
-    ]);
-  };
-
-  const handleDelete = (id: number) => {
-    console.log(id);    
-    setList([...list.filter(item => id != item.id)])
-  }
-
   return (
-    <div>
-      <InputAdd onAdd={handleAdd} />
-
-      <List>
-        {list.map((listItem, index) => (
-          <TodoItem
-            key={index}
-            id={listItem.id}
-            label={listItem.label}
-            complete={listItem.complete}
-            onMarkMade={(id) => handleMarkAsMade(id)}
-            onDelete={handleDelete}
-          />
-        ))}
-      </List>
-    </div>
-  );
+    <AppLayout>
+      <Home />
+    </AppLayout>
+  )
 };

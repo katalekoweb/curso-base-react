@@ -1,0 +1,18 @@
+.layout-base {
+    background: lightgray;
+    padding: 8px
+}
+
+.layout-header {
+    padding: 8px;
+    display: flex
+}
+
+.layout-header a {
+    margin-right: 12px;
+}
+
+
+.layout-divider {
+    border-color: black;
+}

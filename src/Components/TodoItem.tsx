@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./TodoItem.css";
 
 interface ITodoItem {
@@ -11,9 +12,9 @@ interface ITodoItem {
 const TodoItem = ({ id, label, complete, onMarkMade, onDelete }: ITodoItem) => {
   return (
     <li className={`item ${complete ? 'completed' : ''}`}>
-      <span className="label">
+      <Link to={'/details/'+id+'?label='+label} className="label">
         {label}
-      </span>
+      </Link>
 
       <div className="actions">
         <button

@@ -1,33 +1,43 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./InputAdd.css";
 
 // tipos em typecript
 // as propriedades em typescript podem ser variaveis: string, int..., children, funcoes
 interface IInputAddProps {
-    onAdd(value: string): void
+  onAdd(value: string): void;
 }
 
 const InputAdd = (props: IInputAddProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [newTask, setNewTask] = useState("");
 
-const handleAdd = () => {
+  const handleAdd = () => {
     if (newTask.trim()) {
-        props.onAdd(newTask.trim())
-        setNewTask("")
+      props.onAdd(newTask.trim());
+      setNewTask("");
+      inputRef.current?.focus()
     }
-}
+  };
 
-const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-        handleAdd();
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleAdd();
     }
-}
+  };
 
   return (
     <div className="input-add-container">
-      <form className="input-add-form" onSubmit={(e) => { e.preventDefault(); handleAdd(); }}>
+      <form
+        className="input-add-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAdd();
+        }}
+      >
         <input
           type="text"
+          ref={inputRef}
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           onKeyPress={handleKeyPress}

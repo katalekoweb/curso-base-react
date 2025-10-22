@@ -8,8 +8,6 @@ import PageLayout from '../shared/page-layout/PageLayout';
 const Home = () => {
   const [list, setList] = useState<ITodo[]>([]); // desestruturar a tupla
 
-  
-
   useEffect(() => {
     // console.log("Effect");   
     TodoAPI.getAll().then(data => setList(data)) 

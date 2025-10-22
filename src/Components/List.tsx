@@ -1,10 +1,27 @@
 import React from 'react'
+import './List.css'
 
-const List = ({ children }: React.PropsWithChildren) => {
+interface ListProps {
+  children: React.ReactNode;
+}
+
+const List = ({ children }: ListProps) => {
+  const hasChildren = React.Children.count(children) > 0;
+
+  if (!hasChildren) {
+    return (
+      <div className="todo-list-empty">
+        <div className="empty-icon">📝</div>
+        <div className="empty-title">Nenhuma tarefa ainda</div>
+        <div className="empty-description">Adicione sua primeira tarefa para começar!</div>
+      </div>
+    );
+  }
+
   return (
-    <ol>
+    <ul className="todo-list">
       {children}
-    </ol>
+    </ul>
   )
 }
 

@@ -2,34 +2,79 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Segoe UI", Arial;
-    background: #e6eeeeff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
     color: #333;
+    overflow-x: hidden;
 }
 
 .layout-base {
-    padding: 8px
+    min-height: 100vh;
+    padding: 0;
+    background: #ffffff;
+    position: relative;
 }
 
 .layout-header {
-    background: rgba(19, 206, 112, 1);
+    background: #1DA1F2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .layout-header-container {
-    padding: 8px;
+    padding: 20px 24px;
     display: flex;
-    padding: 18px;
     align-items: center;
-    justify-content: space-around;
-    max-width: 800px;
+    justify-content: center;
+    max-width: 1200px;
     margin: 0 auto;
+    gap: 40px;
 }
 
 .layout-header a {
-    margin-right: 12px;
+    margin: 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+.layout-header a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
 
-.layout-divider {
-    border-color: black;
+.layout-header a.active {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.layout-content {
+    padding: 0 16px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .layout-header-container {
+        padding: 16px 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .layout-header a {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .layout-content {
+        padding: 0 8px;
+    }
 }

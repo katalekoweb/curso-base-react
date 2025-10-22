@@ -1,4 +1,3 @@
-import React from "react";
 import "./TodoItem.css";
 
 interface ITodoItem {
@@ -11,17 +10,26 @@ interface ITodoItem {
 
 const TodoItem = ({ id, label, complete, onMarkMade, onDelete }: ITodoItem) => {
   return (
-    <li key={id}>
-      <div className="item">
-        <div>
-          <span>{label}</span>
-          {complete ? "✅" : ""}
-        </div>
+    <li className={`item ${complete ? 'completed' : ''}`}>
+      <span className="label">
+        {label}
+      </span>
 
-        <div className="actions">
-          <button className="btn"  onClick={() => onMarkMade(id)}>Concluir</button>
-          <button className="btnDanger" onClick={() => onDelete(id)}>Excluir</button>
-        </div>
+      <div className="actions">
+        <button
+          className="btn"
+          onClick={() => onMarkMade(id)}
+          title={complete ? "Marcar como pendente" : "Marcar como concluída"}
+        >
+          {complete ? "Desfazer" : "Concluir"}
+        </button>
+        <button
+          className="btnDanger"
+          onClick={() => onDelete(id)}
+          title="Excluir tarefa"
+        >
+          Excluir
+        </button>
       </div>
     </li>
   );

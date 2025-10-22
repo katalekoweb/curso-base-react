@@ -1,19 +1,50 @@
 .PageLayoutContainer {
-    font-family: arial;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    margin-top: 16px;
+    margin-top: 24px;
+    padding: 0 16px;
 }
 
 .PageContent {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     width: 100%;
-    background: #fff;
-    padding: 12px;
-    border-radius: 20px;
-    shadow: 0 1px 3px 1px #444;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E1E8ED;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.PageContent:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .PageTitle {
     margin-top: 0;
+    margin-bottom: 24px;
+    color: #1DA1F2;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.025em;
+}
+
+@media (max-width: 768px) {
+    .PageLayoutContainer {
+        margin-top: 16px;
+        padding: 0 8px;
+    }
+
+    .PageContent {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .PageTitle {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
 }

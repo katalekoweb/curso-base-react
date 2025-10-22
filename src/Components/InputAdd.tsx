@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./InputAdd.css";
 
 // tipos em typecript
 // as propriedades em typescript podem ser variaveis: string, int..., children, funcoes
@@ -10,23 +11,39 @@ const InputAdd = (props: IInputAddProps) => {
   const [newTask, setNewTask] = useState("");
 
 const handleAdd = () => {
-    props.onAdd(newTask)
-    setNewTask("")
+    if (newTask.trim()) {
+        props.onAdd(newTask.trim())
+        setNewTask("")
+    }
+}
+
+const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+        handleAdd();
+    }
 }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-      />
+    <div className="input-add-container">
+      <form className="input-add-form" onSubmit={(e) => { e.preventDefault(); handleAdd(); }}>
+        <input
+          type="text"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Digite sua nova tarefa..."
+          className="input-add-input"
+          required
+        />
 
-      <button
-        onClick={handleAdd}
-      >
-        Adicionar
-      </button>
+        <button
+          type="submit"
+          className="input-add-button"
+          disabled={!newTask.trim()}
+        >
+          Adicionar
+        </button>
+      </form>
     </div>
   );
 };

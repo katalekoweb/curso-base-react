@@ -1,0 +1,112 @@
+.input-add-container {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #E1E8ED;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.input-add-form {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.input-add-input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid #E1E8ED;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #1A1A1A;
+}
+
+.input-add-input:focus {
+    border-color: #1DA1F2;
+    box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.1);
+    transform: translateY(-1px);
+}
+
+.input-add-input::placeholder {
+    color: #657786;
+    font-style: italic;
+}
+
+.input-add-button {
+    background: #1DA1F2;
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(29, 161, 242, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-width: 140px;
+}
+
+.input-add-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.input-add-button:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.input-add-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.4);
+    background: #1A91DA;
+}
+
+.input-add-button:active {
+    transform: translateY(0);
+}
+
+.input-add-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(29, 161, 242, 0.2);
+    background: #1DA1F2;
+}
+
+@media (max-width: 768px) {
+    .input-add-container {
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .input-add-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .input-add-input {
+        padding: 14px 16px;
+    }
+
+    .input-add-button {
+        padding: 14px 24px;
+        min-width: auto;
+        width: 100%;
+    }
+}
